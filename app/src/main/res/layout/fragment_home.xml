@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:fillViewport="true"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/material_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_back" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/image_sea_aquarium" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginEnd="@dimen/margin_padding_size_small"
+            android:src="@drawable/ic_notification" />
+    </com.google.android.material.appbar.MaterialToolbar>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_header_images"
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        android:layout_margin="@dimen/margin_padding_size_medium"
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/material_toolbar"
+        tools:listitem="@layout/item_header_recycler" />
+    <ru.tinkoff.scrollingpagerindicator.ScrollingPagerIndicator
+        android:id="@+id/indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:spi_dotSize="16dp"
+        app:spi_orientation="horizontal"
+        app:spi_dotSelectedColor="@color/red"
+        app:layout_constraintStart_toStartOf="@id/rv_header_images"
+        app:layout_constraintEnd_toEndOf="@id/rv_header_images"
+        app:layout_constraintBottom_toBottomOf="@id/rv_header_images"
+        android:layout_marginBottom="@dimen/margin_padding_size_small"/>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/mcv_map"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="@dimen/margin_padding_size_medium"
+        app:cardBackgroundColor="@color/grey"
+        app:cardCornerRadius="32dp"
+        app:cardElevation="0dp"
+        app:layout_constraintEnd_toStartOf="@+id/mcv_inhabitants"
+        app:layout_constraintHorizontal_bias="0.5"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rv_header_images">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_map" />
+    </com.google.android.material.card.MaterialCardView>
+
+    <TextView
+        android:id="@+id/tv_map"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_padding_size_small"
+        android:text="Map"
+        app:layout_constraintEnd_toEndOf="@id/mcv_map"
+        app:layout_constraintStart_toStartOf="@id/mcv_map"
+        app:layout_constraintTop_toBottomOf="@id/mcv_map" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/mcv_inhabitants"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="@dimen/margin_padding_size_medium"
+        app:cardBackgroundColor="@color/grey"
+        app:cardCornerRadius="32dp"
+        app:cardElevation="0dp"
+        app:layout_constraintEnd_toStartOf="@+id/mcv_show"
+        app:layout_constraintHorizontal_bias="0.5"
+
+        app:layout_constraintStart_toEndOf="@+id/mcv_map"
+        app:layout_constraintTop_toBottomOf="@id/rv_header_images">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_inhabitants" />
+    </com.google.android.material.card.MaterialCardView>
+
+    <TextView
+        android:id="@+id/tv_inhabitants"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_padding_size_small"
+        android:text="Inhabitants"
+        app:layout_constraintEnd_toEndOf="@id/mcv_inhabitants"
+        app:layout_constraintStart_toStartOf="@id/mcv_inhabitants"
+        app:layout_constraintTop_toBottomOf="@id/mcv_inhabitants" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/mcv_show"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="@dimen/margin_padding_size_medium"
+        app:cardBackgroundColor="@color/grey"
+        app:cardCornerRadius="32dp"
+        app:cardElevation="0dp"
+        app:layout_constraintEnd_toStartOf="@+id/mcv_shopping"
+        app:layout_constraintHorizontal_bias="0.5"
+
+        app:layout_constraintStart_toEndOf="@+id/mcv_inhabitants"
+        app:layout_constraintTop_toBottomOf="@id/rv_header_images">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_shows" />
+    </com.google.android.material.card.MaterialCardView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_padding_size_small"
+        android:text="Shows"
+        app:layout_constraintEnd_toEndOf="@id/mcv_show"
+        app:layout_constraintStart_toStartOf="@id/mcv_show"
+        app:layout_constraintTop_toBottomOf="@id/mcv_show" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/mcv_shopping"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="@dimen/margin_padding_size_medium"
+        app:cardBackgroundColor="@color/grey"
+        app:cardCornerRadius="32dp"
+        app:cardElevation="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+
+        app:layout_constraintStart_toEndOf="@+id/mcv_show"
+        app:layout_constraintTop_toBottomOf="@id/rv_header_images">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_shopping" />
+    </com.google.android.material.card.MaterialCardView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_padding_size_small"
+        android:text="Shopping"
+        app:layout_constraintEnd_toEndOf="@id/mcv_shopping"
+        app:layout_constraintStart_toStartOf="@id/mcv_shopping"
+        app:layout_constraintTop_toBottomOf="@id/mcv_shopping" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/mcv_dine"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="@dimen/margin_padding_size_medium"
+        app:cardBackgroundColor="@color/grey"
+        app:cardCornerRadius="32dp"
+        app:cardElevation="0dp"
+        app:layout_constraintStart_toStartOf="@id/mcv_map"
+        app:layout_constraintTop_toBottomOf="@id/tv_map"
+
+        >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_dine" />
+    </com.google.android.material.card.MaterialCardView>
+
+    <TextView
+        android:id="@+id/tv_dine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_padding_size_small"
+        android:text="Dine"
+        app:layout_constraintEnd_toEndOf="@id/mcv_dine"
+        app:layout_constraintStart_toStartOf="@id/mcv_dine"
+        app:layout_constraintTop_toBottomOf="@id/mcv_dine" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/mcv_meet_and_greets"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="@dimen/margin_padding_size_medium"
+        app:cardBackgroundColor="@color/grey"
+        app:cardCornerRadius="32dp"
+        app:cardElevation="0dp"
+        app:layout_constraintStart_toStartOf="@id/mcv_inhabitants"
+        app:layout_constraintTop_toBottomOf="@id/tv_inhabitants"
+
+        >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_meet_and_greet" />
+    </com.google.android.material.card.MaterialCardView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_padding_size_small"
+        android:text="Dine"
+        app:layout_constraintEnd_toEndOf="@id/mcv_meet_and_greets"
+        app:layout_constraintStart_toStartOf="@id/mcv_meet_and_greets"
+        app:layout_constraintTop_toBottomOf="@id/mcv_meet_and_greets" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/mcv_my_etickets"
+        android:layout_width="180dp"
+        android:layout_height="160dp"
+        android:layout_marginTop="@dimen/margin_padding_size_medium"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/mcv_park_hour"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_dine">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tv_my_e_tickets"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_padding_size_medium"
+                android:text="My e-tickets"
+                android:textSize="@dimen/text_size_medium"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_padding_size_medium"
+                android:src="@drawable/ic_eticket"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_e_ticket_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_padding_size_medium"
+                android:text="There aren't \nany yet."
+                android:textAlignment="textStart"
+                android:textStyle="bold"
+                android:textColor="@color/grey_line"
+                android:textSize="@dimen/text_size_large"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_my_e_tickets" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_padding_size_medium"
+                android:text="Retrieve here"
+                android:textColor="@color/red"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_e_ticket_status" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/mcv_park_hour"
+        android:layout_width="180dp"
+        android:layout_height="160dp"
+        android:layout_marginTop="@dimen/margin_padding_size_medium"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/mcv_my_etickets"
+        app:layout_constraintTop_toBottomOf="@id/tv_dine">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tv_park_hour"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_padding_size_medium"
+                android:text="Park Hour"
+                android:textSize="@dimen/text_size_medium"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_padding_size_medium"
+                android:src="@drawable/ic_eticket"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_park_hour_status"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_padding_size_medium"
+                android:text="Today,13 Feb \n10am - 5pm"
+                android:textAlignment="textStart"
+                android:textStyle="bold"
+                android:textSize="@dimen/text_size_large"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_park_hour" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_padding_size_medium"
+                android:text="Plan my visit"
+                android:textColor="@color/red"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_park_hour_status" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <include
+        android:id="@+id/include_upcoming_shows"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        layout="@layout/include_upcoming_show"
+        app:layout_constraintTop_toBottomOf="@id/mcv_my_etickets"
+        android:layout_marginBottom="@dimen/margin_padding_size_medium"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_dine"
+        android:background="@color/grey_input"
+        android:layout_marginTop="@dimen/margin_padding_size_ultraLarge"
+        android:elevation="-1dp"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
