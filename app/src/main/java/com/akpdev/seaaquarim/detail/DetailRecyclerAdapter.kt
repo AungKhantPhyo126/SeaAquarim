@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.akpdev.seaaquarim.data.MyDummyData
 import com.akpdev.seaaquarim.databinding.ItemDetailRecyclerBinding
 
-class DetailRecyclerAdapter :
+class DetailRecyclerAdapter(private val closeClick:()->Unit) :
     ListAdapter<MyDummyData, DetailRecyclerAdapter.DetailItemViewHolder>(DetailItemsDiffUtil) {
 
 
@@ -28,6 +28,14 @@ class DetailRecyclerAdapter :
 
     inner class DetailItemViewHolder(private val binding: ItemDetailRecyclerBinding) :
         RecyclerView.ViewHolder(binding.root) {
+        private val _data:MyDummyData? = null
+        val data:MyDummyData
+            get() = _data!!
+        init {
+            binding.ivCross.setOnClickListener {
+                closeClick()
+            }
+        }
         fun bind(data: MyDummyData) {
             binding.ivDetail.setImageResource(data.image)
         }
